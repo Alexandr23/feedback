@@ -4,14 +4,18 @@
   position: relative;
 }
 
+.feedback-page__main {
+  display: flex;
+}
+
 .feedback-page__form {
-  position: relative;
+  width: 20rem;
 }
 
 .feedback-page__chart {
-  position: relative;
+  margin-left: $space * 10;
 }
 
 .feedback-page__list {
-  position: relative;
+  margin-top: $space * 10;
 }

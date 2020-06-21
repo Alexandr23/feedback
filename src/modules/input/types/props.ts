@@ -4,4 +4,6 @@ export interface InputProps {
   value?: string;
   type?: string;
   name?: string;
+  placeholder?: string;
+  error?: boolean;
 }

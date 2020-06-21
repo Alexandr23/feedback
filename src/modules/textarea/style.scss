@@ -1,5 +1,6 @@
 @import "../../styles/mixin/field";
 
-.input {
+.textarea {
   @include field;
+  max-width: 100%;
 }

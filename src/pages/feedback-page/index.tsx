@@ -29,11 +29,13 @@ class FeedbackPageComponent extends React.Component<FeedbackPageProps> {
     return (
       <Layout>
         <div className="feedback-page">
-          <div className="feedback-page__form">
-            <FeedbackForm onSubmit={this.onFeedbackFormSubmit} />
-          </div>
+          <div className="feedback-page__main">
+            <div className="feedback-page__form">
+              <FeedbackForm onSubmit={this.onFeedbackFormSubmit} />
+            </div>
 
-          <div className="feedback-page__chart">Chart</div>
+            <div className="feedback-page__chart">Chart</div>
+          </div>
 
           <div className="feedback-page__list">
             List

@@ -1,0 +1,33 @@
+@import "../../styles/vars";
+
+.button {
+  position: relative;
+  display: inline-block;
+  height: 32px;
+  line-height: 1.5715;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.65);
+  white-space: nowrap;
+  text-align: center;
+  border: 1px solid $color-lightgrey;
+  padding: 4px 15px;
+  background-color: $color-white;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  touch-action: manipulation;
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  color: $color-blue;
+  border-color: $color-blue;
+}
+
+.button:active {
+  color: $color-blue-dark;
+  border-color: $color-blue-dark;
+}

@@ -1,10 +1,15 @@
-.search-form {
-  display: flex;
-  width: 100%;
-  max-width: 27rem;
+@import "../../styles/vars";
+
+.feedback-form {
+
 }
 
-.search-form__type {
-  width: 10rem;
-  flex-shrink: 0;
+.feedback-form__field {
+  & + & {
+    margin-top: $space * 2;
+  }
+}
+
+.feedback-form__button {
+  margin-top: $space * 4;
 }

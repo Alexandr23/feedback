@@ -1,0 +1,35 @@
+@import "../vars";
+
+@mixin field {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  padding: 7px 15px;
+  color: hsl(0, 0%, 20%);
+  font-size: 14px;
+  line-height: 1.5rem;
+  background-color: #fff;
+  border: 1px solid $color-lightgrey;
+  transition: all 0.3s;
+  outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+
+  &:hover,
+  &:focus {
+    border-color: $color-blue;
+  }
+
+  &::placeholder {
+    color: $color-grey;
+  }
+
+  &_error,
+  &_error:hover,
+  &_error:focus {
+    border-color: $color-red;
+  }
+}
