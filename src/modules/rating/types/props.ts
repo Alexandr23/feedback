@@ -1,5 +1,6 @@
 export interface RatingProps {
-  onChange(value: number): void;
   value: number;
+  onChange?(value: number): void;
   className?: string;
+  isReadonly?: boolean;
 }

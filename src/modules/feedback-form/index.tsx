@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Title } from "../../modules/title";
 import { Input } from "../../modules/input";
 import { Textarea } from "../../modules/textarea";
 import { Button } from "../../modules/button";
@@ -101,6 +102,8 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
 
     return (
       <form className="feedback-form" onSubmit={this.onSubmit}>
+        <Title className="feedback-form__title">Feedback</Title>
+
         <Input
           className="feedback-form__field"
           name="name"
@@ -119,12 +122,6 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
           error={errors.email}
         />
 
-        <Rating
-          className="feedback-form__field feedback-form__field_rating"
-          onChange={this.onRatingChange}
-          value={form.rating}
-        />
-
         <Textarea
           className="feedback-form__field"
           name="comment"
@@ -132,6 +129,12 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
           onChange={this.onChange}
           value={form.comment}
           error={errors.comment}
+        />
+
+        <Rating
+          className="feedback-form__field feedback-form__field_rating"
+          onChange={this.onRatingChange}
+          value={form.rating}
         />
 
         <Button className="feedback-form__button" type="submit">

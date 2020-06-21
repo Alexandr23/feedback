@@ -1,0 +1,7 @@
+@import "../../styles/vars";
+
+.feedback-list__item {
+  & + & {
+    margin-top: $space * 2;
+  }
+}

@@ -1,0 +1,47 @@
+@import "../../styles/vars";
+
+.feedback-card {
+  display: flex;
+  padding: $space * 4;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  background-color: $color-white;
+}
+
+.feedback-card__avatar {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: $color-white;
+  background-color: $color-grey;
+  text-align: center;
+}
+
+.feedback-card__body {
+  width: 100%;
+  margin-left: $space * 4;
+}
+
+.feedback-card__header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: $space * 4;
+}
+
+.feedback-card__name {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  color: $color-grey;
+  word-break: break-all;
+}
+
+.feedback-card__comment {
+  margin-bottom: $space;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-text;
+  word-break: break-all;
+}

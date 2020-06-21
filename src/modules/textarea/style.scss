@@ -3,4 +3,6 @@
 .textarea {
   @include field;
   max-width: 100%;
+  min-width: 100%;
+  min-height: 5rem;
 }
