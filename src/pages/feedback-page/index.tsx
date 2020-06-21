@@ -40,7 +40,7 @@ class FeedbackPageComponent extends React.Component<FeedbackPageProps> {
           <div className="feedback-page__list">
             List
             {this.props.feedbackList.map((feedback, index) => (
-              <div key={index}>{`${feedback.name}: ${feedback.comment}`}</div>
+              <div key={index}>{`${feedback.name}: ${feedback.comment} - ${feedback.rating}`}</div>
             ))}
           </div>
         </div>

@@ -8,6 +8,10 @@
   & + & {
     margin-top: $space * 2;
   }
+
+  &_rating {
+    text-align: right;
+  }
 }
 
 .feedback-form__button {

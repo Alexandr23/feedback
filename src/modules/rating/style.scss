@@ -1,0 +1,16 @@
+@import "../../styles/vars";
+
+.rating {
+  display: flex;
+}
+
+.rating__star {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: $color-yellow;
+  cursor: pointer;
+
+  & + & {
+    margin-left: $space;
+  }
+}

@@ -1,4 +1,4 @@
-# GitHub Searcher
+# Feedback Page
 
 ## Run the project
 In the project directory, you can run:

@@ -3,6 +3,7 @@ import React from "react";
 import { Input } from "../../modules/input";
 import { Textarea } from "../../modules/textarea";
 import { Button } from "../../modules/button";
+import { Rating } from "../../modules/rating";
 import { FeedbackFormProps } from "./types/props";
 import { FeedbackFormState } from "./types/state";
 import { validateEmail } from "../../helpers/validate/email";
@@ -30,16 +31,24 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
   }
 
   private onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    this.change({ [e.target.name]: e.target.value });
+  };
+
+  private onRatingChange = (value: number) => {
+    this.change({ rating: value });
+  };
+
+  private change(fields: Partial<FeedbackFormState["form"]>) {
     this.setState(
       {
         form: {
           ...this.state.form,
-          [e.target.name]: e.target.value,
+          ...fields,
         },
       },
       this.validate,
     );
-  };
+  }
 
   private onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -110,7 +119,11 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
           error={errors.email}
         />
 
-        <Input className="feedback-form__field" name="rating" onChange={this.onChange} value={String(form.rating)} />
+        <Rating
+          className="feedback-form__field feedback-form__field_rating"
+          onChange={this.onRatingChange}
+          value={form.rating}
+        />
 
         <Textarea
           className="feedback-form__field"
