@@ -29,23 +29,33 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
         rating: false,
         comment: false,
       },
+      isTouched: {
+        name: false,
+        email: false,
+        rating: false,
+        comment: false,
+      },
     };
   }
 
   private onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    this.change({ [e.target.name]: e.target.value });
+    this.change(e.target.name as keyof FeedbackFormState["form"], e.target.value);
   };
 
   private onRatingChange = (value: number) => {
-    this.change({ rating: value });
+    this.change("rating", value);
   };
 
-  private change(fields: Partial<FeedbackFormState["form"]>) {
+  private change<T extends keyof FeedbackFormState["form"]>(name: T, value: FeedbackFormState["form"][T]) {
     this.setState(
       {
         form: {
           ...this.state.form,
-          ...fields,
+          [`${name}`]: value,
+        },
+        isTouched: {
+          ...this.state.isTouched,
+          [`${name}`]: true,
         },
       },
       this.validate,
@@ -112,7 +122,7 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
   };
 
   public render() {
-    const { form, errors } = this.state;
+    const { form, errors, isTouched } = this.state;
 
     return (
       <form className="feedback-form" onSubmit={this.onSubmit}>
@@ -122,7 +132,7 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
           placeholder="Name"
           onChange={this.onChange}
           value={form.name}
-          error={errors.name}
+          error={isTouched.name && errors.name}
         />
 
         <Input
@@ -131,7 +141,7 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
           placeholder="Email"
           onChange={this.onChange}
           value={form.email}
-          error={errors.email}
+          error={isTouched.email && errors.email}
         />
 
         <Textarea
@@ -140,7 +150,7 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
           placeholder="Comment"
           onChange={this.onChange}
           value={form.comment}
-          error={errors.comment}
+          error={isTouched.comment && errors.comment}
         />
 
         <Rating
