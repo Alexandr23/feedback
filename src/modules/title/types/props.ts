@@ -1,5 +1,6 @@
-import { TitleType } from "./type";
 import { ReactNode } from "react";
+
+import { TitleType } from "./type";
 
 export interface TitleProps {
   children?: ReactNode;

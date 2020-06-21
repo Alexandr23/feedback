@@ -4,8 +4,10 @@ import { RouteComponentProps } from "react-router-dom";
 
 import { RootState } from "../../modules/redux/types/root-state";
 import { Layout } from "../../modules/layout";
+import { Title } from "../../modules/title";
 import { FeedbackForm } from "../../modules/feedback-form";
 import { FeedbackList } from "../../modules/feedback-list";
+import { FeedbackChart } from "../../modules/feedback-chart";
 import { FeedbackPageProps } from "./types/props";
 import { FeedbackPageStateProps } from "./types/state-props";
 import { FeedbackPageDispatchProps } from "./types/dispatch-props";
@@ -30,12 +32,16 @@ class FeedbackPageComponent extends React.Component<FeedbackPageProps> {
     return (
       <Layout>
         <div className="feedback-page">
+          <Title className="feedback-page__title">Feedback</Title>
+
           <div className="feedback-page__main">
             <div className="feedback-page__form">
               <FeedbackForm onSubmit={this.onFeedbackFormSubmit} />
             </div>
 
-            <div className="feedback-page__chart">Chart</div>
+            <div className="feedback-page__chart">
+              <FeedbackChart feedbackList={this.props.feedbackList} />
+            </div>
           </div>
 
           <div className="feedback-page__list">

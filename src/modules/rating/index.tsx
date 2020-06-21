@@ -29,6 +29,7 @@ export class Rating extends React.Component<RatingProps> {
 
           return (
             <div
+              key={value}
               className="rating__star"
               onClick={() => !isReadonly && this.props.onChange && this.props.onChange(value)}
             >

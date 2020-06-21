@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Title } from "../../modules/title";
 import { Input } from "../../modules/input";
 import { Textarea } from "../../modules/textarea";
 import { Button } from "../../modules/button";
@@ -8,6 +7,8 @@ import { Rating } from "../../modules/rating";
 import { FeedbackFormProps } from "./types/props";
 import { FeedbackFormState } from "./types/state";
 import { validateEmail } from "../../helpers/validate/email";
+import { getUniqId } from "../../helpers/get-uniq-id";
+import { dateGetTime } from "../../helpers/date/get-time";
 
 import "./style.scss";
 
@@ -59,7 +60,20 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
 
   private submit() {
     if (this.validate()) {
-      this.props.onSubmit(this.state.form);
+      this.props.onSubmit({
+        ...this.state.form,
+        id: getUniqId(),
+        created: new Date().toISOString(),
+      });
+
+      this.setState({
+        form: {
+          name: "",
+          email: "",
+          rating: 0,
+          comment: "",
+        },
+      });
     }
   }
 
@@ -102,8 +116,6 @@ export class FeedbackForm extends React.Component<FeedbackFormProps, FeedbackFor
 
     return (
       <form className="feedback-form" onSubmit={this.onSubmit}>
-        <Title className="feedback-form__title">Feedback</Title>
-
         <Input
           className="feedback-form__field"
           name="name"

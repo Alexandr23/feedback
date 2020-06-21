@@ -9,7 +9,7 @@ export const FeedbackList: React.FC<FeedbackListProps> = ({ feedbackList }) => {
   return (
     <div className="feedback-list">
       {feedbackList.map((feedback) => (
-        <div className="feedback-list__item">
+        <div className="feedback-list__item" key={feedback.id}>
           <FeedbackCard feedback={feedback} />
         </div>
       ))}

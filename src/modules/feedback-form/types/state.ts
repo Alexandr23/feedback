@@ -1,6 +1,6 @@
 import { Feedback } from "../../feedback/types/feedback";
 
 export interface FeedbackFormState {
-  form: Feedback;
-  errors: Record<keyof Feedback, boolean>;
+  form: Omit<Feedback, "id" | "created">;
+  errors: Record<keyof Omit<Feedback, "id" | "created">, boolean>;
 }
